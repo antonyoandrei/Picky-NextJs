@@ -3,7 +3,7 @@ import './footer.css';
 import logo from '../../assets/logo.svg';
 import Image from 'next/image';
 
-export default function FooterComponent() {
+const FooterComponent = () => {
   return (
     <footer className='footer-container'>
         <section className="socials-wrapper">
@@ -38,3 +38,5 @@ export default function FooterComponent() {
     </footer>
   );
 }
+
+export default FooterComponent;

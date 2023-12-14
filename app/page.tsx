@@ -3,39 +3,40 @@
 import { useEffect } from 'react';
 import Link from 'next/link';
 import { useUserContext } from '../utils/useUserContext'; 
-import { handleAuth } from '@auth0/nextjs-auth0';
+import { useUser } from '@auth0/nextjs-auth0/client';
+import { getAccessToken } from '@auth0/nextjs-auth0';
 import MovieFrameComponent from '../components/Movie Frame/MovieFrame'; 
-// import { getUserByEmail, createUser } from 'api'; 
+import { getUserByEmail, createUser } from '../app/api/users.service'; 
 import styles from './homepage.module.css';
 import { UserType } from '@/contexts/UserContext';
 
 const Homepage = () => {
-  const { getAccessTokenSilently, user, isLoading } = handleAuth();
+  const { user, isLoading } = useUser();
   const { setCurrentLoggedUser } = useUserContext();
-
-  // useEffect(() => {
-  //   (async function fetchUserData() {
-  //     try {
-  //       if (user?.email) {
-  //         const userData = await getUserByEmail(getAccessTokenSilently, user?.email);
-  //         const userFetched = userData[1] as UserType;
-  //         if (userData[1] != null) {
-  //           setCurrentLoggedUser(userFetched);
-  //         } else {
-  //           const newUser = {
-  //             name: user.name,
-  //             email: user.email,
-  //             password: user.email,
-  //           };
-  //           const userCreated = await createUser(newUser);
-  //           setCurrentLoggedUser(userCreated);
-  //         }
-  //       }
-  //     } catch (error) {
-  //       console.error('Error fetching user data:', error);
-  //     }
-  //   })();
-  // }, [user]);
+  
+  useEffect(() => {
+    (async function fetchUserData() {
+      try {
+        if (user?.email) {
+          const userData = await getUserByEmail(user?.email);
+          const userFetched = userData[1] as UserType;
+          if (userData[1] != null) {
+            setCurrentLoggedUser(userFetched);
+          } else {
+            const newUser = {
+              name: user.name,
+              email: user.email,
+              password: user.email,
+            };
+            const userCreated = await createUser(newUser);
+            setCurrentLoggedUser(userCreated);
+          }
+        }
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+      }
+    })();
+  }, [user]);
 
   if (isLoading) {
     return (
@@ -58,7 +59,7 @@ const Homepage = () => {
             <button className={styles.seeAllBtn}><p className={styles.seeAllText}>See all</p></button>
           </Link>
       </section>
-      {/* <MovieFrameComponent id="firstSwiper" movieSet="allMovies" /> */}
+      <MovieFrameComponent id="firstSwiper" movieSet="allMovies" />
     </main>
   );
 };

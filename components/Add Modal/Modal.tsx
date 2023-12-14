@@ -1,18 +1,19 @@
+'use client';
+
 import './modal.css';
 import { ChangeEvent, useContext, useEffect, useRef, useState } from 'react';
 import { MovieContext, MovieType } from '../../contexts/MovieContext';
 import toast, { Toaster } from 'react-hot-toast';
-import { createMovie } from '../../services/movies.service';
-import { handleAuth } from '@auth0/nextjs-auth0';
+import { createMovie } from '../../app/api/movies.service';
 import { userContext } from '../../contexts/UserContext';
-import { uploadRequest } from '../../services/upload.service';
+import { uploadRequest } from '../../app/api/upload.service';
 
 export type FormData = {
   id: number;
   title: string;
   rating: string;
   genres: string;
-  imgSrc: string;
+  imgSrc: string | undefined;
 };
 
 type UserModalProps = {
@@ -21,12 +22,11 @@ type UserModalProps = {
   toggleButtonRef: React.RefObject<SVGSVGElement>;
 };
 
-export default function ModalComponent({ isVisible, toggleModal, toggleButtonRef }: UserModalProps & { toggleButtonRef: React.RefObject<SVGSVGElement> }) {
+const ModalComponent = ({ isVisible, toggleModal, toggleButtonRef }: UserModalProps & { toggleButtonRef: React.RefObject<SVGSVGElement> }) => {
   const modalClassName = isVisible ? 'modal-component shown' : 'modal-component hidden';
   const [movie, setMovie] = useState<FormData>({ id: 0, title: '', rating: '', genres: '', imgSrc: '' });
   const modalRef = useRef<HTMLDivElement>(null);
   const { addMovieToAll } = useContext(MovieContext);
-  const {getAccessTokenSilently}= handleAuth();
   const { currentUser} = useContext(userContext);
   const [file, setfile] = useState<File>();
 
@@ -39,14 +39,13 @@ export default function ModalComponent({ isVisible, toggleModal, toggleButtonRef
           title: movie.title,
           rating: parsedRating,
           genres: movie.genres,
-          imgSrc: cloudinaryImageUrl,
-          poster_image: cloudinaryImageUrl,
+          imgSrc: cloudinaryImageUrl || '',
+          poster_image: cloudinaryImageUrl || '',
           id: movie.id
         };
-      const token = await getAccessTokenSilently();
-      const userId = currentUser.id;
+      const userId = currentUser?.id ?? 0;
       window.location.reload();
-      await createMovie(movie, token, userId);
+      await createMovie(movie, userId);
       addMovieToAll(newMovie);
       setMovie({ title: '', rating: '', genres: '', imgSrc: '', id: 0 });
     } else {
@@ -65,7 +64,7 @@ export default function ModalComponent({ isVisible, toggleModal, toggleButtonRef
         const cloudinaryImageUrl = await uploadRequest(file);
         setMovie((prevData) => ({
             ...prevData,
-            imgSrc: cloudinaryImageUrl,
+            imgSrc: cloudinaryImageUrl || '',
         }));
         window.dispatchEvent(new Event('movieImageUpdated'));
     }
@@ -173,3 +172,5 @@ export default function ModalComponent({ isVisible, toggleModal, toggleButtonRef
     </>
   );
 }
+
+export default ModalComponent;

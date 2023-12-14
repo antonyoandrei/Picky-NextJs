@@ -12,6 +12,7 @@
     "@auth0/nextjs-auth0": "^3.5.0",
     "next": "14.0.4",
     "react": "^18",
+    "react-content-loader": "^6.2.1",
     "react-dom": "^18",
     "react-hook-form": "^7.49.2",
     "react-hot-toast": "^2.4.1",

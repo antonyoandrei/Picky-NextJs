@@ -1,21 +1,24 @@
+'use client';
+
 import './moviedetails.css'
 import imdb from '../../assets/imdb.logo.svg'
 import { useState, useEffect } from 'react';
-import { deleteMovieById, fetchMovieById } from '../../services/movies.service';
-import { useAuth0 } from '@auth0/auth0-react';
-import { useParams } from 'react-router-dom';
+import { deleteMovieById, fetchMovieById } from "../../app/api/movies.service";
+import { useRouter } from 'next/router';
 
-export default function MovieDetailsComponent() {
+const MovieDetailsComponent = () => {
   const [movieDetails, setMovieDetails] = useState(null);
   const [isSeen, setIsSeen] = useState(false);
-  const { getAccessTokenSilently } = useAuth0();
-  const { movieId } = useParams();
+  const router = useRouter();
+  const { movieId } = router.query;
 
   useEffect(() => {
     const fetchDetails = async () => {
-      const token = await getAccessTokenSilently();
+      if (movieId === undefined) {
+        return;
+      }
       try {
-        const details = await fetchMovieById(token, +movieId);
+        const details = await fetchMovieById(+movieId);
         setMovieDetails(details);
         const storedIsSeen = localStorage.getItem(`seen_${movieId}`);
         if (storedIsSeen !== null) {
@@ -26,12 +29,14 @@ export default function MovieDetailsComponent() {
       }
     };
     fetchDetails();
-  }, [movieId, getAccessTokenSilently]);
+  }, [movieId]);
 
   const handleDeleteClick = async () => {
-    const token = await getAccessTokenSilently();
+    if (movieId === undefined) {
+      return;
+    }
     try {
-      const isDeleted = await deleteMovieById(token, +movieId);
+      const isDeleted = await deleteMovieById(+movieId);
       if (isDeleted) {
         window.location.href = '/';
       } else {
@@ -112,3 +117,5 @@ export default function MovieDetailsComponent() {
     </main>
   );
 }
+
+export default MovieDetailsComponent;
