@@ -1,0 +1,38 @@
+.homeWrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 75vh;
+}
+
+.frameTitleWrapper {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  margin-top: 50px;
+  margin-left: 300px;
+}
+
+.frameTitle {
+  font-size: var(--fs-m);
+  font-weight: var(--fw-medium);
+  color: var(--secondary);
+}
+
+.seeAllBtn {    
+  background-color: var(--secondary);
+  transition: background-color 0.2s;
+  height: 20px;
+  width: 60px;
+  cursor: pointer;
+}
+
+.seeAllBtn:hover {    
+  background-color: var(--clr-link);
+}
+
+.seeAllText {
+  font-size: var(--fs-xxs);
+  color: var(--primary);
+  position: relative;
+  top: 2px;
+}

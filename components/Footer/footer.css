@@ -1,0 +1,53 @@
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.socials-wrapper {
+    display: flex;
+    gap: 20px;
+}
+
+.icon-social {
+    color: var(--secondary);
+    transition: color 0.2s;
+}
+
+.icon-social:hover {
+    color: var(--clr-link);
+    cursor: pointer;
+}
+
+.info-wrapper {
+    display: flex;
+    gap: 20px;
+    font-size: var(--fs-xxs);
+    color: var(--secondary);
+    font-weight: var(--fw-medium);
+    transition: color 0.2s;
+}
+
+.info-wrapper p:hover {
+    cursor: pointer;
+    color: var(--clr-link);
+}
+
+.rights-wrapper {
+    font-size: var(--fs-xxs);
+    font-weight: var(--fw-light);
+    margin-bottom: 20px;
+    color: var(--secondary);
+}
+
+.ait-svg {
+    border-radius: 50%;
+    box-shadow: none;
+    color: var(--secondary);
+    transition: box-shadow 0.2s;
+}
+
+.ait-svg:hover {
+    box-shadow: 0px 0px 20px 4px var(--clr-link);
+}

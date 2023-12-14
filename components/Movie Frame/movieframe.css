@@ -1,0 +1,55 @@
+.swiper-hero {
+    width: 100%;
+    height: 310px;
+    max-width: 1200px;
+    max-height: 310px;
+    background: linear-gradient(90deg, #ffffff13 0%, #0000002c 15%, #0000002c 50%, #0000002c 85%, #ffffff13 100%);
+}
+
+.swiper-hero .swiper-slide {
+    width: 100%;
+    padding: 5px 0 5px 0;
+}
+
+.swiper-hero img {
+    width: 200px;
+    object-fit: cover;
+}
+
+.swiper-hero .swiper-button-prev,
+.swiper-hero .swiper-button-next {
+    --swiper-navigation-size: 20px;
+    background-color: var(--primary);
+    height: 70px;
+    width: 50px;
+    margin-top: -35px;
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.swiper-hero .swiper-button-prev {
+    border-radius: 0 65px 65px 0;
+    left: -10px;
+    color: var(--secondary);
+}
+.swiper-hero .swiper-button-next {
+    border-radius: 65px 0 0 65px;
+    right: -10px;
+    color: var(--secondary);
+}
+
+.swiper-hero:hover .swiper-button-prev,
+.swiper-hero:hover .swiper-button-next {
+    opacity: 1;
+}
+
+.fallback-text {
+    font-size: var(--fs-l);
+    font-weight: var(--fw-medium);
+    color: var(--secondary);
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 150px;
+    left: 300px;
+}

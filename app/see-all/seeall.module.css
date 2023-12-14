@@ -1,0 +1,33 @@
+.see-all-component {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.see-all-title {
+    font-size: var(--fs-r);
+    font-weight: var(--fw-medium);
+}
+
+.movies-wrapper {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-column-gap: 2rem;
+    grid-row-gap: 2rem;
+}
+
+.cover {
+    width: 200px;
+    object-fit: cover;
+}
+
+.fallback-text-2 {
+    font-size: var(--fs-l);
+    font-weight: var(--fw-medium);
+    color: var(--secondary);
+    display: flex;
+    justify-content: center;
+}
