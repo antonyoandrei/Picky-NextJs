@@ -1,26 +1,25 @@
 'use client';
 
 import './moviedetails.css'
-import imdb from '../../assets/imdb.logo.svg'
+import imdb from '../../public/imdb.logo.svg'
 import { useState, useEffect } from 'react';
 import { deleteMovieById, fetchMovieById } from "../../app/api/movies.service";
-import { useRouter } from 'next/router';
+import Image from 'next/image';
+import { Genre, MovieType } from '@/contexts/MovieContext';
 
-const MovieDetailsComponent = () => {
-  const [movieDetails, setMovieDetails] = useState(null);
+const MovieDetailsComponent = ({ movieId }: any) => {
+  const [movieDetails, setMovieDetails] = useState<MovieType | null>(null);
   const [isSeen, setIsSeen] = useState(false);
-  const router = useRouter();
-  const { movieId } = router.query;
-
+  
   useEffect(() => {
     const fetchDetails = async () => {
       if (movieId === undefined) {
         return;
       }
       try {
-        const details = await fetchMovieById(+movieId);
+        const details = await fetchMovieById(movieId.id);
         setMovieDetails(details);
-        const storedIsSeen = localStorage.getItem(`seen_${movieId}`);
+        const storedIsSeen = localStorage.getItem(`seen_${movieId.id}`);
         if (storedIsSeen !== null) {
           setIsSeen(JSON.parse(storedIsSeen));
         }
@@ -36,7 +35,7 @@ const MovieDetailsComponent = () => {
       return;
     }
     try {
-      const isDeleted = await deleteMovieById(+movieId);
+      const isDeleted = await deleteMovieById(movieId.id);
       if (isDeleted) {
         window.location.href = '/';
       } else {
@@ -49,7 +48,7 @@ const MovieDetailsComponent = () => {
 
   const handleClick = () => {
     setIsSeen((prevIsSeen) => !prevIsSeen);
-    localStorage.setItem(`seen_${movieId}`, JSON.stringify(!isSeen));
+    localStorage.setItem(`seen_${movieId.id}`, JSON.stringify(!isSeen));
   };
     
   if (!movieDetails) {
@@ -68,7 +67,7 @@ const MovieDetailsComponent = () => {
   return (
     <main className='details-component'>
       <section className='details-cover-container'>
-        <img className='details-cover' src={movieDetails.poster_image || 'https://res.cloudinary.com/du94mex28/image/upload/v1699002566/Picky/sans-affiche_hgymml.png'} alt={movieDetails?.title} />
+        <Image width={300} height={450} className='details-cover' src={movieDetails.poster_image || 'https://res.cloudinary.com/du94mex28/image/upload/v1699002566/Picky/sans-affiche_hgymml.png'} alt={movieDetails?.title} />
         <article className='details-manager'>
         <div className="details-seen" onClick={handleClick}>
           {isSeen ? (
@@ -102,14 +101,14 @@ const MovieDetailsComponent = () => {
           <div className='details-movie-info-rating-wrapper'>
             <h2 className='details-movie-info-title'>RATING</h2>
             <div className="rating-container">
-              <img src={imdb} className='imdb'/>
+              <Image width={40} height={20} src={imdb} alt='imdb-logo' className='imdb'/>
               <p className='details-movie-info-paragraph'>{movieDetails.score}</p>
             </div>
           </div>
           <div className='details-movie-info-genres-wrapper'>
             <h2 className='details-movie-info-title'>GENRES</h2>
             <div className="genres-container">
-              <p className='details-movie-info-paragraph'>{movieDetails.genres.map((genre: { genre: { name: string; }; }) => genre.genre.name).join(', ')}</p>
+              <p className='details-movie-info-paragraph'>{movieDetails.genres.map((genre: Genre) => genre.genre.name)}</p>
             </div>
           </div>
         </article>

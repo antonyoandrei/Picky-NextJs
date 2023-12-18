@@ -18,7 +18,7 @@ export const createUser = async (userObject: {}) => {
 }
 
 export const getUserByEmail = async (userEmail: string) => {
-      const url = process.env.NEXT_PUBLIC_API_URL;
+    const url = process.env.NEXT_PUBLIC_API_URL;
 
     try {
         const response = await fetch(`${url}/user/email/${userEmail}`, {

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import './footer.css';
-import logo from '../../assets/logo.svg';
+import logo from '../../public/logo.svg';
 import Image from 'next/image';
 
 const FooterComponent = () => {
@@ -24,7 +24,7 @@ const FooterComponent = () => {
                 </svg>
             </Link>
             <Link href={'https://assemblerinstitute.com'} target='_blank'>
-                <Image src={logo} alt="Assmebler logo" className='ait-svg'/>
+                <Image width={35} height={35} src={logo} alt="Assmebler logo" className='ait-svg'/>
             </Link>
         </section>
         <section className="info-wrapper">

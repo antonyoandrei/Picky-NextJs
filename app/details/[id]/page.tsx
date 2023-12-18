@@ -1,11 +1,14 @@
-import MovieDetailsComponent from "../../../components/Movie Details/MovieDetails"
+'use client';
 
-const Details = () => {
+import MovieDetailsComponent from "../../../components/Movie Details/MovieDetails"
+import { withPageAuthRequired } from '@auth0/nextjs-auth0/client';
+
+const Details = ({params}: { params: { id: number } }) => {
     return (
         <>
-            <MovieDetailsComponent />
+            <MovieDetailsComponent movieId={params}/>
         </>
     )
 } 
 
-export default Details;
+export default withPageAuthRequired(Details);

@@ -56,15 +56,6 @@ html, body {
 }
 
 
-/* FONTS */
-@font-face {
-  font-family: 'League Spartan';
-  src: url('../assets/fonts/leaguespartan.woff2') format('woff2'),
-    url('../assets/fonts/leaguespartan.woff') format('woff');
-  font-display: swap;
-}
-
-
 /* SCROLLBAR */
 ::-webkit-scrollbar {
     width: 0.6rem;
@@ -106,7 +97,7 @@ html, body {
 }
 
 .cradle-wrapper {
-  height: 75vh;
+  height: 70vh;
 }
 
 .newtons-cradle {

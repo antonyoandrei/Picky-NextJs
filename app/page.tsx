@@ -4,9 +4,8 @@ import { useEffect } from 'react';
 import Link from 'next/link';
 import { useUserContext } from '../utils/useUserContext'; 
 import { useUser } from '@auth0/nextjs-auth0/client';
-import { getAccessToken } from '@auth0/nextjs-auth0';
 import MovieFrameComponent from '../components/Movie Frame/MovieFrame'; 
-import { getUserByEmail, createUser } from '../app/api/users.service'; 
+import { getUserByEmail, createUser } from './api/users.service'; 
 import styles from './homepage.module.css';
 import { UserType } from '@/contexts/UserContext';
 

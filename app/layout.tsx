@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import localFont from 'next/font/local'
 import './globals.css';
 import HeaderComponent from '@/components/Header/Header';
 import FooterComponent from '@/components/Footer/Footer';
@@ -7,7 +7,7 @@ import { UserProvider } from '@auth0/nextjs-auth0/client';
 import { UserContextProvider } from '@/contexts/UserContext';
 import AuthenticatedMovieProvider from '@/contexts/MovieContext';
 
-const inter = Inter({ subsets: ['latin'] })
+const myFont = localFont({ src: './leaguespartan.woff2' })
 
 export const metadata: Metadata = {
   title: 'Picky',
@@ -25,7 +25,7 @@ export default function RootLayout({
         <UserProvider>
           <UserContextProvider>
             <AuthenticatedMovieProvider>
-              <body className={inter.className}>
+              <body className={myFont.className}>
                 <HeaderComponent />
                   {children}
                 <FooterComponent />

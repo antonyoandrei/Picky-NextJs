@@ -9,11 +9,19 @@ import { useUserContext } from '../utils/useUserContext';
 export type MovieType = {
   id: number;
   title: string;
+  name: string;
+  score: string;
   rating: number;
-  genres: string;
+  genres: Genre[];
   imgSrc: string;
   poster_image: string;
 };
+
+export type Genre = {
+  genre: {
+    name: string
+  }
+}
 
 type MovieSets = {
   [x: string]: any;
@@ -37,7 +45,7 @@ type MovieProviderProps = {
 };
 
 const MovieProvider = ({ children }: MovieProviderProps) => {
-  const [movieSets, setMovieSets] = useState<MovieSets>(() => ({ allMovies: [] }));
+  const [movieSets, setMovieSets] = useState<MovieSets>({ allMovies: [] });
   const { user } = useUser();
   const { currentUser } = useUserContext();
   const { loginWithRedirect } = handleAuth();

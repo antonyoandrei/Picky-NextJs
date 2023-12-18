@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div align="center">
+  <img src="https://res.cloudinary.com/du94mex28/image/upload/v1699002532/Picky/logo_hlbuat.png" alt="Picky" width="350">
+</div>
 
-## Getting Started
+## Overview
 
-First, run the development server:
+Welcome to the Picky project! Picky is a movie management application that allows users to create, read, update, and delete movies. The project focuses on both frontend and backend development, with the frontend built using React and the backend employing Node.js, Express, MongoDB, Prisma, PostgreSQL, Auth0, and Cloudinary.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Table of Contents
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- [Frontend](#frontend)
+- [Backend](#backend)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Frontend
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Folder Architecture
 
-## Learn More
+The frontend follows a modular folder architecture for better organization and scalability. Each component and feature is structured within the designated folders, ensuring a clean and maintainable codebase.
 
-To learn more about Next.js, take a look at the following resources:
+### Integration of Auth0
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Picky incorporates Auth0 for authentication and authorization. Users can securely log in and perform CRUD operations based on their roles and permissions.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Sending JWT in HTTP Requests
 
-## Deploy on Vercel
+JSON Web Tokens (JWT) are utilized to handle user authentication. JWTs are securely sent in HTTP requests to validate user actions and maintain a secure communication channel between the frontend and backend.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Proper Use of Types
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+TypeScript is employed for type safety throughout the frontend codebase. This ensures better code quality, catching potential errors during development.
+
+### Code Modularization
+
+Code is modularized to enhance readability and reusability. Components and functions are organized logically, promoting an efficient and maintainable code structure.
+
+### UX/UI Design
+
+The application's user interface is designed with a focus on user experience. The Figma design provides a visually appealing and intuitive layout, making movie management an enjoyable and straightforward process.
+
+## Backend
+
+### CRUD of Movies
+
+The backend supports CRUD operations for managing movies. Users can create, read, update, and delete movie entries, providing a comprehensive set of functionalities for movie management.
+
+### MVC Folder Architecture
+
+The backend follows the Model-View-Controller (MVC) architecture for clear separation of concerns. Models handle data logic, views manage user interfaces, and controllers oversee the flow of data between models and views.
+
+### Mongoose Implementation
+
+MongoDB is integrated using Mongoose to interact with the database. This provides a scalable and flexible solution for handling movie data.
+
+### Route Protection
+
+Certain routes are protected to ensure that only authenticated and authorized users can access and modify movie data. This adds an extra layer of security to the application.
+
+### Multi-Client Prisma Implementation
+
+Prisma is employed as the database toolkit, supporting multiple clients for various database types. This allows for seamless integration with both MongoDB and PostgreSQL, catering to different use cases and preferences.
+
+### Proper Use of Types
+
+TypeScript is utilized in the backend code to enforce type safety, reducing the likelihood of runtime errors and improving overall code quality.
+
+### Cloudinary Integration
+
+Cloudinary is integrated for efficient handling of movie poster images. This ensures that the application can seamlessly manage and display movie posters from the cloud.
+
+### Environment Variables (.env) Implementation
+
+Sensitive information and configuration settings are stored in environment variables (.env) to enhance security and maintain flexibility across different deployment environments.
+
+Feel free to explore and enhance Picky!

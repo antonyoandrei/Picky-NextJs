@@ -2,7 +2,7 @@
 
 import './modal.css';
 import { ChangeEvent, useContext, useEffect, useRef, useState } from 'react';
-import { MovieContext, MovieType } from '../../contexts/MovieContext';
+import { Genre, MovieContext, MovieType } from '../../contexts/MovieContext';
 import toast, { Toaster } from 'react-hot-toast';
 import { createMovie } from '../../app/api/movies.service';
 import { userContext } from '../../contexts/UserContext';
@@ -12,7 +12,7 @@ export type FormData = {
   id: number;
   title: string;
   rating: string;
-  genres: string;
+  genres: Genre[];
   imgSrc: string | undefined;
 };
 
@@ -24,30 +24,32 @@ type UserModalProps = {
 
 const ModalComponent = ({ isVisible, toggleModal, toggleButtonRef }: UserModalProps & { toggleButtonRef: React.RefObject<SVGSVGElement> }) => {
   const modalClassName = isVisible ? 'modal-component shown' : 'modal-component hidden';
-  const [movie, setMovie] = useState<FormData>({ id: 0, title: '', rating: '', genres: '', imgSrc: '' });
+  const [movie, setMovie] = useState<FormData>({ id: 0, title: '', rating: '', genres: [], imgSrc: '' });
   const modalRef = useRef<HTMLDivElement>(null);
   const { addMovieToAll } = useContext(MovieContext);
   const { currentUser} = useContext(userContext);
   const [file, setfile] = useState<File>();
-
+  
   const onUpdate = async () => {
     const parsedRating = parseFloat(movie.rating);
     const cloudinaryImageUrl = await uploadRequest(file);
     try {
       if (movie.title && !isNaN(parsedRating) && movie.genres && movie.imgSrc) {
         const newMovie: MovieType = {
-          title: movie.title,
+          name: movie.title,
           rating: parsedRating,
           genres: movie.genres,
           imgSrc: cloudinaryImageUrl || '',
           poster_image: cloudinaryImageUrl || '',
-          id: movie.id
+          id: movie.id,
+          title: '',
+          score: ''
         };
       const userId = currentUser?.id ?? 0;
       window.location.reload();
       await createMovie(movie, userId);
       addMovieToAll(newMovie);
-      setMovie({ title: '', rating: '', genres: '', imgSrc: '', id: 0 });
+      setMovie({ title: '', rating: '', genres: [], imgSrc: '', id: 0 });
     } else {
       toast.error('All fields are required, and rating must be a number.');
     }

@@ -1,7 +1,7 @@
 .details-component {
     display: flex;
     justify-content: center;
-    height: 70vh;
+    height: 65vh;
     gap: 5rem;
     margin-top: 3%;
 }
@@ -12,7 +12,6 @@
 }
 
 .details-cover {
-    width: 300px;
     object-fit: cover;
 }
 
@@ -104,8 +103,4 @@
 
 .details-movie-info-paragraph {
     font-size: var(--fs-s);
-}
-
-.imdb {
-    width: 40px;
 }
