@@ -80,6 +80,7 @@ const MovieDetailsComponent = ({ movieId }: any) => {
             "https://res.cloudinary.com/du94mex28/image/upload/v1699002566/Picky/sans-affiche_hgymml.png"
           }
           alt={movieDetails?.title}
+          priority
         />
         <article className={`details-manager ${isDarkMode ? "dark-mode" : ""}`}>
           <div className="details-seen" onClick={handleClick}>
@@ -172,6 +173,7 @@ const MovieDetailsComponent = ({ movieId }: any) => {
                 src={imdb}
                 alt="imdb-logo"
                 className="imdb"
+                priority
               />
               <p className="details-movie-info-paragraph">
                 {movieDetails.score}

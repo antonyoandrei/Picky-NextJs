@@ -17,7 +17,7 @@ const HeaderComponent = () => {
   const { currentUser } = useUserContext();
   const { t } = useTranslation();
   const { isDarkMode } = useTheme();
-
+  
   useEffect(() => {
     const handleUserImageUpdate = () => {
       setImgSrc(user?.picture || "");

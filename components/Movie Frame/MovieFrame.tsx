@@ -59,6 +59,7 @@ const MovieFrameComponent: React.FC<MovieFrameComponentProps> = ({
                         "https://res.cloudinary.com/du94mex28/image/upload/v1699002566/Picky/sans-affiche_hgymml.png"
                       }
                       alt={movie.title}
+                      priority
                     />
                   </Link>
                 </article>

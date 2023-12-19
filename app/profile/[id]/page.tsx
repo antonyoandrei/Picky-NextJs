@@ -5,11 +5,11 @@ import HeaderComponent from "@/components/Header/Header";
 import UserDetailsComponent from "@/components/User Details/UserDetails";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0/client";
 
-const Profile = ({ params }: { params: { id: number } }) => {
+const Profile = () => {
   return (
     <>
       <HeaderComponent />
-      <UserDetailsComponent userId={params} />
+      <UserDetailsComponent />
       <FooterComponent />
     </>
   );

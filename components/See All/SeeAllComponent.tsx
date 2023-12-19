@@ -63,6 +63,7 @@ const SeeAllComponent = () => {
                       movie.poster_image ||
                       "https://res.cloudinary.com/du94mex28/image/upload/v1699002566/Picky/sans-affiche_hgymml.png"
                     }
+                    priority
                   />
                 </Link>
               </article>

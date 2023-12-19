@@ -10,7 +10,7 @@ import { useTranslation } from "react-i18next";
 import { useTheme } from "@/contexts/ThemeContext";
 import toast from "react-hot-toast";
 
-const UserDetailsComponent = ({ userId }: any) => {
+const UserDetailsComponent = () => {
   const { user } = useUser();
   const { t } = useTranslation();
   const { isDarkMode, toggleTheme } = useTheme();
@@ -73,6 +73,7 @@ const UserDetailsComponent = ({ userId }: any) => {
               src={spain}
               alt="spain-flag"
               className="flag"
+              priority
             />
             <Image
               onClick={() => changeLanguage("en")}
@@ -81,6 +82,7 @@ const UserDetailsComponent = ({ userId }: any) => {
               src={uk}
               alt="uk-flag"
               className="flag"
+              priority
             />
           </div>
         </article>

@@ -66,6 +66,7 @@ const FooterComponent = () => {
             src={logo}
             alt="Assmebler logo"
             className="ait-svg"
+            priority
           />
         </Link>
       </section>
