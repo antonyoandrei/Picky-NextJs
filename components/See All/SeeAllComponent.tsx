@@ -10,6 +10,7 @@ import { UserType } from "@/contexts/UserContext";
 import { useUserContext } from "@/utils/useUserContext";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
+import { useTheme } from "@/contexts/ThemeContext";
 
 const SeeAllComponent = () => {
   const { movieSets } = useContext(MovieContext);
@@ -17,6 +18,7 @@ const SeeAllComponent = () => {
   const { setCurrentLoggedUser } = useUserContext();
   const { user } = useUser();
   const { t } = useTranslation();
+  const { isDarkMode } = useTheme();
 
   useEffect(() => {
     (async function fetchUserData() {
@@ -44,7 +46,7 @@ const SeeAllComponent = () => {
 
   return (
     <main className="see-all-component">
-      <h1 className="see-all-title">{t("All movies")}</h1>
+      <h1 className={`see-all-title ${isDarkMode ? 'dark-mode' : ''}`}>{t("All movies")}</h1>
       {movies.length > 0 ? (
         <section className="movies-wrapper">
           {movies.map(

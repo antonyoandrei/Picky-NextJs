@@ -10,6 +10,11 @@
 .see-all-title {
   font-size: var(--fs-r);
   font-weight: var(--fw-medium);
+  color: var(--secondary);
+}
+
+.see-all-title.dark-mode {
+  color: var(--primary);
 }
 
 .movies-wrapper {
