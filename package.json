@@ -10,12 +10,14 @@
   },
   "dependencies": {
     "@auth0/nextjs-auth0": "^3.5.0",
+    "i18next": "^23.7.11",
     "next": "14.0.4",
     "react": "^18",
     "react-content-loader": "^6.2.1",
     "react-dom": "^18",
     "react-hook-form": "^7.49.2",
     "react-hot-toast": "^2.4.1",
+    "react-i18next": "^13.5.0",
     "swiper": "^11.0.5"
   },
   "devDependencies": {

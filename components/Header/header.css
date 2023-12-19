@@ -1,83 +1,92 @@
 .header {
-    background-color: var(--secondary);
+  background-color: var(--secondary);
+}
+
+.header.dark-mode {
+  background-color: var(--clr-purple-darker);
 }
 
 .header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    margin-left: 50px;
-    margin-right: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 
 .logged-wrapper {
-    display: flex;
-    gap: 15px;
-    align-items: center;
+  display: flex;
+  gap: 15px;
+  align-items: center;
 }
 
 .logged-text {
-    color: var(--primary);
-    font-size: var(--fs-s);
+  color: var(--primary);
+  font-size: var(--fs-s);
 }
 
 .logo {
-    font-weight: var(--fw-bold);
-    font-size: var(--fs-l);
-    color: var(--primary);
-    cursor: pointer;
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-l);
+  color: var(--primary);
+  cursor: pointer;
 }
 
 .icon-tabler-key {
-    cursor: pointer;
-    transition: color 0.2s;
-    color: var(--primary);
+  cursor: pointer;
+  transition: color 0.2s;
+  color: var(--primary);
 }
 
 .icon-tabler-key:hover {
-    color: var(--clr-link);
+  color: var(--clr-link);
 }
 
 .icon-tabler-user-hexagon {
-    cursor: pointer;
-    transition: color 0.2s;
-    color: var(--primary);
+  cursor: pointer;
+  transition: color 0.2s;
+  color: var(--primary);
 }
 
 .icon-tabler-user-hexagon:hover {
-    color: var(--clr-link);
+  color: var(--clr-link);
 }
 
 .icon-tabler-hexagon-plus {
-    cursor: pointer;
-    transition: color 0.2s;
-    color: var(--primary);
+  cursor: pointer;
+  transition: color 0.2s;
+  color: var(--primary);
 }
 
 .icon-tabler-hexagon-plus:hover {
-    color: var(--clr-link);
+  color: var(--clr-link);
 }
 
 .user-link-container {
-    height: 48px;
+  height: 48px;
 }
 
 .user-avatar {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 50px;
-    border-radius: 50%;
-    height: 50px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 50px;
+  border-radius: 50%;
+  height: 50px;
 }
 
 .icon-tabler-logout {
-    color: var(--primary);
-    cursor: pointer;
-    transition: color 0.2s;
+  color: var(--primary);
+  cursor: pointer;
+  transition: color 0.2s;
 }
 
 .icon-tabler-logout:hover {
-    color: var(--clr-link);
+  color: var(--clr-link);
+}
+
+.anchor-icon {
+  width: 48px;
+  height: 48px;
 }

@@ -1,55 +1,82 @@
 .swiper-hero {
-    width: 100%;
-    height: 310px;
-    max-width: 1200px;
-    max-height: 310px;
-    background: linear-gradient(90deg, #ffffff13 0%, #0000002c 15%, #0000002c 50%, #0000002c 85%, #ffffff13 100%);
+  width: 100%;
+  height: 310px;
+  max-width: 1070px;
+  max-height: 310px;
+  background: linear-gradient(
+    90deg,
+    #ffffff13 0%,
+    #0000002c 15%,
+    #0000002c 50%,
+    #0000002c 85%,
+    #ffffff13 100%
+  );
+}
+
+.swiper-hero.dark-mode {
+  background: linear-gradient(
+    90deg,
+    #3c213000 0%,
+    #3c21305e 15%,
+    #3c2130a1 50%,
+    #3c213036 85%,
+    #3c213000 100%
+  );
 }
 
 .swiper-hero .swiper-slide {
-    width: 100%;
-    padding: 2.5px 0;
+  width: 100%;
+  padding: 2.5px 0;
 }
 
 .swiper-hero img {
-    width: 200px;
-    object-fit: cover;
+  width: 200px;
 }
 
 .swiper-hero .swiper-button-prev,
 .swiper-hero .swiper-button-next {
-    --swiper-navigation-size: 20px;
-    background-color: var(--primary);
-    height: 70px;
-    width: 50px;
-    margin-top: -35px;
-    opacity: 0;
-    transition: opacity 0.4s;
+  --swiper-navigation-size: 20px;
+  background-color: var(--primary);
+  height: 70px;
+  width: 50px;
+  margin-top: -35px;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.swiper-hero .swiper-button-prev.dark-mode,
+.swiper-hero .swiper-button-next.dark-mode {
+  background-color: var(--secondary);
+  color: var(--primary);
 }
 
 .swiper-hero .swiper-button-prev {
-    border-radius: 0 65px 65px 0;
-    left: -10px;
-    color: var(--secondary);
+  border-radius: 0 65px 65px 0;
+  left: -10px;
+  color: var(--secondary);
 }
 .swiper-hero .swiper-button-next {
-    border-radius: 65px 0 0 65px;
-    right: -10px;
-    color: var(--secondary);
+  border-radius: 65px 0 0 65px;
+  right: -10px;
+  color: var(--secondary);
 }
 
 .swiper-hero:hover .swiper-button-prev,
 .swiper-hero:hover .swiper-button-next {
-    opacity: 1;
+  opacity: 1;
 }
 
 .fallback-text {
-    font-size: var(--fs-l);
-    font-weight: var(--fw-medium);
-    color: var(--secondary);
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    bottom: 150px;
-    left: 300px;
+  font-size: var(--fs-l);
+  font-weight: var(--fw-medium);
+  color: var(--secondary);
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 150px;
+  left: 300px;
+}
+
+.fallback-text.dark-mode {
+  color: var(--primary);
 }

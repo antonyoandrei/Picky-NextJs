@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { createContext, useState, useEffect, ReactNode } from 'react';
-import { useUser, UserProvider } from '@auth0/nextjs-auth0/client';
-import { handleAuth } from '@auth0/nextjs-auth0';
-import { fetchMovies } from '../app/api/movies.service';
-import { useUserContext } from '../utils/useUserContext';
+import { createContext, useState, useEffect, ReactNode } from "react";
+import { useUser, UserProvider } from "@auth0/nextjs-auth0/client";
+import { handleAuth } from "@auth0/nextjs-auth0";
+import { fetchMovies } from "../app/api/movies.service";
+import { useUserContext } from "../utils/useUserContext";
 
 export type MovieType = {
   id: number;
@@ -19,9 +19,9 @@ export type MovieType = {
 
 export type Genre = {
   genre: {
-    name: string
-  }
-}
+    name: string;
+  };
+};
 
 type MovieSets = {
   [x: string]: any;
@@ -49,27 +49,27 @@ const MovieProvider = ({ children }: MovieProviderProps) => {
   const { user } = useUser();
   const { currentUser } = useUserContext();
   const { loginWithRedirect } = handleAuth();
-  
+
   useEffect(() => {
     const fetchMoviesForUser = async () => {
-        try {
-          if (!user || !currentUser) {
-            return;
+      try {
+        if (!user || !currentUser) {
+          return;
         }
-            const moviesData = await fetchMovies(currentUser.id);
-            setMovieSets((prevSets) => ({
-                ...prevSets,
-                allMovies: moviesData,
-            }));
-        } catch (error) {
-            console.error('Error fetching movies:', error);
-        }
+        const moviesData = await fetchMovies(currentUser.id);
+        setMovieSets((prevSets) => ({
+          ...prevSets,
+          allMovies: moviesData,
+        }));
+      } catch (error) {
+        console.error("Error fetching movies:", error);
+      }
     };
 
     if (user) {
-        fetchMoviesForUser();
+      fetchMoviesForUser();
     }
-}, [user, currentUser]);
+  }, [user, currentUser]);
 
   const addMovieToAll = (movie: MovieType) => {
     if (user) {
@@ -89,11 +89,11 @@ const MovieProvider = ({ children }: MovieProviderProps) => {
   );
 };
 
-export const AuthenticatedMovieProvider = ({ children }: MovieProviderProps) => (
+export const AuthenticatedMovieProvider = ({
+  children,
+}: MovieProviderProps) => (
   <UserProvider>
-    <MovieProvider>
-      {children}
-    </MovieProvider>
+    <MovieProvider>{children}</MovieProvider>
   </UserProvider>
 );
 

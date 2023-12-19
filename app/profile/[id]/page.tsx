@@ -2,17 +2,17 @@
 
 import FooterComponent from "@/components/Footer/Footer";
 import HeaderComponent from "@/components/Header/Header";
-import MovieDetailsComponent from "../../../components/Movie Details/MovieDetails";
+import UserDetailsComponent from "@/components/User Details/UserDetails";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0/client";
 
-const Details = ({ params }: { params: { id: number } }) => {
+const Profile = ({ params }: { params: { id: number } }) => {
   return (
     <>
       <HeaderComponent />
-      <MovieDetailsComponent movieId={params} />
+      <UserDetailsComponent userId={params} />
       <FooterComponent />
     </>
   );
 };
 
-export default withPageAuthRequired(Details);
+export default withPageAuthRequired(Profile);

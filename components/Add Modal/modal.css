@@ -1,133 +1,163 @@
 .modal-component {
-    display: flex;
-    align-items: center;
-    background-color: var(--secondary);
-    border-radius: 40px;
-    position: absolute;
-    z-index: 10;
-    top: 125px;
-    left: 30%;
-    flex-direction: column;
-    padding: 4rem 2rem;
-    gap: 4rem;
+  display: flex;
+  align-items: center;
+  background-color: var(--secondary);
+  border-radius: 40px;
+  position: absolute;
+  z-index: 10;
+  top: 125px;
+  left: 30%;
+  flex-direction: column;
+  padding: 4rem 2rem;
+  gap: 4rem;
+}
+
+.modal-component.dark-mode {
+  background-color: var(--clr-purple-darker);
 }
 
 .movie-info {
-    display: flex;
-    gap: 2rem;
+  display: flex;
+  gap: 2rem;
 }
 
 .modal-title {
-    font-size: var(--fs-m);
-    font-weight: var(--fw-semibold);
-    color: var(--primary);
+  font-size: var(--fs-m);
+  font-weight: var(--fw-semibold);
+  color: var(--primary);
 }
 
-.modal-btn {    
-    background-color: var(--primary);
-    transition: background-color 0.2s;
-    height: 60px;
-    width: 230px;
-    border-radius: 15px;
-    cursor: pointer;
+.modal-title.dark-mode {
+  color: var(--primary);
 }
 
-.modal-btn:hover {    
-    background-color: var(--clr-link);
+.modal-btn {
+  background-color: var(--primary);
+  transition: background-color 0.2s;
+  height: 60px;
+  width: 230px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.modal-btn.dark-mode {
+  background-color: var(--secondary);
+}
+
+.modal-btn:hover {
+  background-color: var(--clr-link);
 }
 
 .modal-btn-text {
-    font-size: var(--fs-m);
-    font-weight: var(--fw-semibold);
-    color: var(--secondary);
-    position: relative;
-    top: 2px;
+  font-size: var(--fs-m);
+  font-weight: var(--fw-semibold);
+  color: var(--secondary);
+  position: relative;
+  top: 2px;
+}
+
+.modal-btn-text.dark-mode {
+  color: var(--primary);
 }
 
 .modal-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .modal-input {
-    padding: 15px;
-    background-color: var(--secondary);
-    border-radius: 10px;
-    width: 400px;
-    border: none;
-    font-size: var(--fs-r);
-    font-weight: var(--fs-regular);
-    border-inline: 2px solid transparent;
-    transition: border-inline 0.4s;
-    color: var(--primary);
+  padding: 15px;
+  background-color: var(--secondary);
+  border-radius: 10px;
+  width: 400px;
+  border: none;
+  font-size: var(--fs-r);
+  font-weight: var(--fs-regular);
+  border-inline: 2px solid transparent;
+  transition: border-inline 0.4s;
+  color: var(--primary);
+}
+
+.modal-input.dark-mode {
+  color: var(--primary);
+  background-color: var(--clr-purple-darker);
 }
 
 .modal-input:focus {
-    outline: none;
-    border-inline: 2px solid var(--clr-link);
+  outline: none;
+  border-inline: 2px solid var(--clr-link);
 }
 
 .modal-input:focus::placeholder {
-    opacity: 1;
+  opacity: 1;
+}
+
+.modal-input.dark-mode:focus::placeholder {
+  opacity: 1;
 }
 
 .modal-input::placeholder {
-    opacity: 0.25;
-    transition: opacity 0.4s;
-    color: var(--primary);
+  opacity: 0.25;
+  transition: opacity 0.4s;
+  color: var(--primary);
+}
+
+.modal-input.dark-mode::placeholder {
+  opacity: 0.25;
+  transition: opacity 0.4s;
+  color: var(--primary);
 }
 
 .cover-container {
-    cursor: pointer;
-    position: absolute;
-    width: 200px;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    height: 300px;
+  cursor: pointer;
+  position: absolute;
+  width: 200px;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  height: 300px;
 }
 
 .cover-container:hover {
-    opacity: 1;
+  opacity: 1;
 }
 
 .cover-img {
-    width: 200px;
-    height: 300px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+  width: 200px;
+  height: 300px;
+  background-size: 200px 300px;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .icon-tabler-upload {
-    color: var(--primary);
+  color: var(--primary);
 }
 
 .modal-img-input {
-    height: 200px;
-    position: absolute;
-    width: 200px;
-    z-index: 1;
-    opacity: 0;
-    cursor: pointer;
-    padding: 5.5rem 2rem;
-    font-size: 0;
+  height: 200px;
+  position: absolute;
+  width: 200px;
+  z-index: 1;
+  opacity: 0;
+  cursor: pointer;
+  padding: 5.5rem 2rem;
+  font-size: 0;
 }
 
 .cover-wrapper {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    gap: 5rem;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 5rem;
 }
 
 .cover {
-    width: 200px;
-    object-fit: cover;
+  width: 200px;
 }

@@ -1,10 +1,11 @@
-.homeWrapper {
+.home-wrapper {
   display: flex;
   flex-direction: column;
   min-height: 70vh;
+  gap: 1rem;
 }
 
-.frameTitleWrapper {
+.frame-title-wrapper {
   display: flex;
   gap: 25px;
   align-items: center;
@@ -12,13 +13,17 @@
   margin-left: 300px;
 }
 
-.frameTitle {
+.frame-title {
   font-size: var(--fs-m);
   font-weight: var(--fw-medium);
   color: var(--secondary);
 }
 
-.seeAllBtn {    
+.frame-title.dark-mode {
+  color: var(--primary);
+}
+
+.see-all-btn {
   background-color: var(--secondary);
   transition: background-color 0.2s;
   height: 20px;
@@ -26,13 +31,22 @@
   cursor: pointer;
 }
 
-.seeAllBtn:hover {    
+.see-all-btn.dark-mode {
+  background-color: var(--primary);
+  transition: background-color 0.2s;
+}
+
+.see-all-btn:hover {
   background-color: var(--clr-link);
 }
 
-.seeAllText {
+.see-all-text {
   font-size: var(--fs-xxs);
   color: var(--primary);
   position: relative;
   top: 2px;
+}
+
+.see-all-text.dark-mode {
+  color: var(--secondary);
 }
