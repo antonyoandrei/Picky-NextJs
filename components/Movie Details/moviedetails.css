@@ -1,14 +1,18 @@
 .details-component {
   display: flex;
   justify-content: center;
-  height: 65vh;
+  height: 70vh;
   gap: 5rem;
-  margin-top: 3%;
 }
 
 .details-cover-container {
   display: flex;
+  margin-top: 2.5rem;
   flex-direction: column;
+}
+
+.details-container {
+  margin-top: 5rem;
 }
 
 .details-manager {

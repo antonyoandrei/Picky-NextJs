@@ -5,7 +5,7 @@ import MovieDetailsComponent from "../../../components/Movie Details/MovieDetail
 const Details = ({ params }: { params: { id: number } }) => {
   return (
     <>
-      <HeaderComponent />
+      <HeaderComponent query={undefined} onInputChange={undefined} />
       <MovieDetailsComponent movieId={params} />
       <FooterComponent />
     </>

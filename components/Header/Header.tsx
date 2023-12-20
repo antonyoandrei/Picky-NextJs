@@ -10,7 +10,12 @@ import { useTranslation } from "react-i18next";
 import { useTheme } from "@/contexts/ThemeContext";
 import { usePathname } from "next/navigation";
 
-const HeaderComponent = () => {
+interface HeaderComponentProps {
+  query?: string;
+  onInputChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+const HeaderComponent: React.FC<HeaderComponentProps> = ({ query, onInputChange }) => {
   const location = usePathname();
   const { user } = useUser();
   const [, setImgSrc] = useState(user?.picture || "");
@@ -62,11 +67,13 @@ const HeaderComponent = () => {
                       className="search_input"
                       placeholder={t("Search...")}
                       type="text"
+                      value={query}
+                      onChange={onInputChange}
                     />
                   </div>
                 </>
               ) : (
-                <Link href={"/search"}>
+                <Link href={`/search?query=${query}`}>
                   <input className="checkbox" type="checkbox" checked={true} />
                   <div className="mainbox">
                     <div className="iconContainer">

@@ -5,7 +5,7 @@ import UserDetailsComponent from "@/components/User Details/UserDetails";
 const Profile = () => {
   return (
     <>
-      <HeaderComponent />
+      <HeaderComponent query={undefined} onInputChange={undefined} />
       <UserDetailsComponent />
       <FooterComponent />
     </>

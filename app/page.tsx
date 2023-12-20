@@ -5,7 +5,7 @@ import HomepageComponent from "@/components/Home Component/HomeComponent";
 const Homepage = () => {
   return (
     <>
-      <HeaderComponent />
+      <HeaderComponent query={undefined} onInputChange={undefined} />
       <HomepageComponent />
       <FooterComponent />
     </>
