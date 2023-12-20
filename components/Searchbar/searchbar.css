@@ -1,4 +1,4 @@
-.see-all-component {
+.searchbar-component {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7,13 +7,13 @@
   margin-bottom: 1rem;
 }
 
-.see-all-title {
+.searchbar-title {
   font-size: var(--fs-r);
   font-weight: var(--fw-medium);
   color: var(--secondary);
 }
 
-.see-all-title.dark-mode {
+.searchbar-title.dark-mode {
   color: var(--primary);
 }
 

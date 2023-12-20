@@ -1,6 +1,6 @@
 "use client";
 
-import "./seeall.css";
+import "./searchbar.css";
 import { Key, useContext, useEffect } from "react";
 import { MovieContext } from "../../contexts/MovieContext";
 import Link from "next/link";
@@ -12,42 +12,16 @@ import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "@/contexts/ThemeContext";
 
-const SeeAllComponent = () => {
+const SearchbarComponent = () => {
   const { movieSets } = useContext(MovieContext);
   const movies = movieSets.allMovies;
-  const { setCurrentLoggedUser } = useUserContext();
-  const { user } = useUser();
   const { t } = useTranslation();
   const { isDarkMode } = useTheme();
 
-  useEffect(() => {
-    (async function fetchUserData() {
-      try {
-        if (user?.email) {
-          const userData = await getUserByEmail(user?.email);
-          const userFetched = userData[1] as UserType;
-          if (userData[1] != null) {
-            setCurrentLoggedUser(userFetched);
-          } else {
-            const newUser = {
-              name: user.name,
-              email: user.email,
-              password: user.email,
-            };
-            const userCreated = await createUser(newUser);
-            setCurrentLoggedUser(userCreated);
-          }
-        }
-      } catch (error) {
-        console.error("Error fetching user data:", error);
-      }
-    })();
-  }, [user]);
-
   return (
-    <main className="see-all-component">
-      <h1 className={`see-all-title ${isDarkMode ? "dark-mode" : ""}`}>
-        {t("All movies")}
+    <main className="searchbar-component">
+      <h1 className={`searchbar-title ${isDarkMode ? "dark-mode" : ""}`}>
+        {t("Results")}
       </h1>
       {movies.length > 0 ? (
         <section className="movies-wrapper">
@@ -75,10 +49,12 @@ const SeeAllComponent = () => {
           )}
         </section>
       ) : (
-        <p className={`fallback-text-2 ${isDarkMode ? 'dark-mode' : ''}`}>{t("No movies added yet")}</p>
+        <p className={`fallback-text-2 ${isDarkMode ? "dark-mode" : ""}`}>
+          {t("Search for movies!")}
+        </p>
       )}
     </main>
   );
 };
 
-export default SeeAllComponent;
+export default SearchbarComponent;
