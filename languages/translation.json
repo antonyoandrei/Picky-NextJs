@@ -24,5 +24,6 @@
   "All fields are required, and rating must be a number.": "Todos los campos son requeridos y la puntuación debe ser un número.",
   "An error occurred while adding the movie.": "Ha ocurrido un error al añadir la película.",
   "Language set to Spanish!": "Idioma cambiado a español!",
-  "Language set to English!": "Idioma cambiado a inglés!"
+  "Language set to English!": "Idioma cambiado a inglés!",
+  "Search...": "Buscar..."
 }

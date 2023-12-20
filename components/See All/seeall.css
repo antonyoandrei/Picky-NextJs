@@ -24,10 +24,6 @@
   grid-row-gap: 2rem;
 }
 
-.cover {
-  width: 200px;
-}
-
 .fallback-text-2 {
   font-size: var(--fs-l);
   font-weight: var(--fw-medium);

@@ -80,3 +80,12 @@
 .fallback-text.dark-mode {
   color: var(--primary);
 }
+
+.cover {
+  transition: filter 0.2s;
+}
+
+.cover:hover {
+  filter: saturate(1.25);
+  transition: filter 0.2s;
+}
