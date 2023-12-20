@@ -1,8 +1,5 @@
-"use client";
-
 import HeaderComponent from "@/components/Header/Header";
 import FooterComponent from "@/components/Footer/Footer";
-import { withPageAuthRequired } from "@auth0/nextjs-auth0/client";
 import SearchbarComponent from "@/components/Searchbar/Searchbar";
 
 const SeeAll = () => {
@@ -15,4 +12,4 @@ const SeeAll = () => {
   );
 };
 
-export default withPageAuthRequired(SeeAll);
+export default SeeAll;

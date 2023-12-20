@@ -1,9 +1,6 @@
-"use client";
-
 import FooterComponent from "@/components/Footer/Footer";
 import HeaderComponent from "@/components/Header/Header";
 import UserDetailsComponent from "@/components/User Details/UserDetails";
-import { withPageAuthRequired } from "@auth0/nextjs-auth0/client";
 
 const Profile = () => {
   return (
@@ -15,4 +12,4 @@ const Profile = () => {
   );
 };
 
-export default withPageAuthRequired(Profile);
+export default Profile;
