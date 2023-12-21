@@ -17,7 +17,7 @@ export const createMovie = async (movie: FormData, userId: number) => {
       }),
     });
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };
 
@@ -72,7 +72,6 @@ export const deleteMovieById = async (movieId: number) => {
     });
 
     if (response.ok) {
-      console.log(`Movie with ID deleted successfully`);
       return true;
     } else {
       console.error(`Failed to delete movie with ID`);

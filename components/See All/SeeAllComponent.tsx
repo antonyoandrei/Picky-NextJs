@@ -42,7 +42,7 @@ const SeeAllComponent = () => {
         console.error("Error fetching user data:", error);
       }
     })();
-  }, [user, setCurrentLoggedUser]);
+  }, [user]);
 
   return (
     <main className="see-all-component">
@@ -75,7 +75,9 @@ const SeeAllComponent = () => {
           )}
         </section>
       ) : (
-        <p className={`fallback-text-2 ${isDarkMode ? 'dark-mode' : ''}`}>{t("No movies added yet")}</p>
+        <p className={`fallback-text-2 ${isDarkMode ? "dark-mode" : ""}`}>
+          {t("No movies added yet")}
+        </p>
       )}
     </main>
   );

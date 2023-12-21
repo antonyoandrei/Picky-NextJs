@@ -39,7 +39,7 @@ const HomepageComponent = () => {
         console.error("Error fetching user data:", error);
       }
     })();
-  }, [user, setCurrentLoggedUser]);
+  }, [user]);
 
   if (isLoading) {
     return (

@@ -11,7 +11,7 @@ import { useTheme } from "@/contexts/ThemeContext";
 import toast from "react-hot-toast";
 
 const UserDetailsComponent = () => {
-  const { user } = useUser();
+  const { user, isLoading } = useUser();
   const { t } = useTranslation();
   const { isDarkMode, toggleTheme } = useTheme();
 
@@ -26,6 +26,19 @@ const UserDetailsComponent = () => {
       localStorage.setItem("language", language);
     }
   };
+
+  if (isLoading) {
+    return (
+      <div className="cradle-wrapper">
+        <div className="newtons-cradle">
+          <div className="newtons-cradle__dot"></div>
+          <div className="newtons-cradle__dot"></div>
+          <div className="newtons-cradle__dot"></div>
+          <div className="newtons-cradle__dot"></div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <main className="user-details-component">

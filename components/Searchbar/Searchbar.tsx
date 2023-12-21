@@ -17,7 +17,7 @@ interface SearchbarProps {
 }
 
 const SearchbarComponent: React.FC<SearchbarProps> = ({ query }) => {
-  const { user } = useUser();
+  const { user, isLoading } = useUser();
   const { setCurrentLoggedUser } = useUserContext();
   const { movieSets } = useContext(MovieContext);
   const movies = movieSets.allMovies;
@@ -50,18 +50,24 @@ const SearchbarComponent: React.FC<SearchbarProps> = ({ query }) => {
         console.error("Error fetching user data:", error);
       }
     })();
-  }, [user, setCurrentLoggedUser]);
+  }, [user]);
 
-  console.log("movies", movies);
-  console.log(filteredMovies);
+  if (isLoading) {
+    return (
+      <div className="cradle-wrapper">
+        <div className="newtons-cradle">
+          <div className="newtons-cradle__dot"></div>
+          <div className="newtons-cradle__dot"></div>
+          <div className="newtons-cradle__dot"></div>
+          <div className="newtons-cradle__dot"></div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <main className="searchbar-component">
-      {query && (
-        <h1 className={`searchbar-title ${isDarkMode ? "dark-mode" : ""}`}>
-          {t("Results")}
-        </h1>
-      )}
+      {query && <h1 className="searchbar-title">{t("Results")}</h1>}
 
       {query && filteredMovies.length > 0 ? (
         <section className="movies-wrapper">
