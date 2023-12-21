@@ -15,7 +15,7 @@ export type FormData = {
   id: number;
   title: string;
   rating: string;
-  genres: Genre[];
+  genres: Genre[] | any;
   imgSrc: string | undefined;
 };
 
