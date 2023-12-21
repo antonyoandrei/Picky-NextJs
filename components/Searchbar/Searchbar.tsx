@@ -50,7 +50,7 @@ const SearchbarComponent: React.FC<SearchbarProps> = ({ query }) => {
         console.error("Error fetching user data:", error);
       }
     })();
-  }, [user]);
+  }, [user, setCurrentLoggedUser]);
 
   console.log("movies", movies);
   console.log(filteredMovies);

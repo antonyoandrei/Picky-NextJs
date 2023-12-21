@@ -17,9 +17,7 @@ const FooterComponent = () => {
         <Link href={"https://github.com/antonyoandrei"} target="_blank">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className={`icon-social ${
-              isDarkMode ? "dark-mode" : ""
-            } icon-tabler icon-tabler-brand-github`}
+            className="icon-social icon-tabler icon-tabler-brand-github"
             width="35"
             height="35"
             viewBox="0 0 24 24"
@@ -39,9 +37,7 @@ const FooterComponent = () => {
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className={`icon-social ${
-              isDarkMode ? "dark-mode" : ""
-            } icon-tabler icon-tabler-brand-linkedin`}
+            className="icon-social icon-tabler icon-tabler-brand-linkedin"
             width="35"
             height="35"
             viewBox="0 0 24 24"
@@ -70,12 +66,12 @@ const FooterComponent = () => {
           />
         </Link>
       </section>
-      <section className={`info-wrapper ${isDarkMode ? "dark-mode" : ""}`}>
+      <section className="info-wrapper">
         <p>{t("Conditions of use")}</p>
         <p>{t("Privacy & Policy")}</p>
         <p>{t("Press Room")}</p>
       </section>
-      <section className={`rights-wrapper ${isDarkMode ? "dark-mode" : ""}`}>
+      <section className="rights-wrapper">
         <p>{t("© 2023 Picky by Antonyo Andrei at AIT")}</p>
       </section>
     </footer>

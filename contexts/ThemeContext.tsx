@@ -21,14 +21,19 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   const [isDarkMode, setIsDarkMode] = useState(() => {
-    const storedDarkMode = localStorage.getItem('darkMode');
-    return storedDarkMode ? JSON.parse(storedDarkMode) : false;
+    if (typeof window !== "undefined") {
+      const storedDarkMode = localStorage.getItem("darkMode");
+      return storedDarkMode ? JSON.parse(storedDarkMode) : false;
+    }
+    return false;
   });
 
   const toggleTheme = () => {
     setIsDarkMode((prevMode: any) => {
       const newMode = !prevMode;
-      localStorage.setItem('darkMode', JSON.stringify(newMode));
+      if (typeof window !== "undefined") {
+        localStorage.setItem("darkMode", JSON.stringify(newMode));
+      }
       return newMode;
     });
   };
@@ -50,6 +55,10 @@ export const useTheme = () => {
   useEffect(() => {
     const { isDarkMode } = context;
     const bodyElement = document.querySelector("body");
+    const headerElement = document.querySelector("header");
+    const infoFooter = document.querySelector(".info-wrapper");
+    const iconsFooter = document.querySelectorAll(".icon-social");
+    const rightsFooter = document.querySelector(".rights-wrapper");
     const swiperBtnPrev = document.querySelector(".swiper-button-prev");
     const swiperBtnNext = document.querySelector(".swiper-button-next");
 
@@ -58,10 +67,22 @@ export const useTheme = () => {
         bodyElement.classList.add("dark-mode");
         swiperBtnNext?.classList.add("dark-mode");
         swiperBtnPrev?.classList.add("dark-mode");
+        headerElement?.classList.add("dark-mode");
+        infoFooter?.classList.add("dark-mode");
+        rightsFooter?.classList.add("dark-mode");
+        iconsFooter.forEach(icon => {
+          icon.classList.add("dark-mode");
+        });
       } else {
         bodyElement.classList.remove("dark-mode");
         swiperBtnNext?.classList.remove("dark-mode");
         swiperBtnPrev?.classList.remove("dark-mode");
+        headerElement?.classList.remove("dark-mode");
+        infoFooter?.classList.remove("dark-mode");
+        rightsFooter?.classList.remove("dark-mode");
+        iconsFooter.forEach(icon => {
+          icon.classList.remove("dark-mode");
+        });
       }
     }
   }, [context.isDarkMode]);

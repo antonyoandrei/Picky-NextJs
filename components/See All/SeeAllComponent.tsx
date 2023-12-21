@@ -42,7 +42,7 @@ const SeeAllComponent = () => {
         console.error("Error fetching user data:", error);
       }
     })();
-  }, [user]);
+  }, [user, setCurrentLoggedUser]);
 
   return (
     <main className="see-all-component">

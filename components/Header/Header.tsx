@@ -34,14 +34,14 @@ const HeaderComponent: React.FC<HeaderComponentProps> = ({ query, onInputChange 
     return () => {
       window.removeEventListener("userImageUpdated", handleUserImageUpdate);
     };
-  }, []);
+  }, [user]);
 
   const toggleModal = () => {
     setIsModalVisible(!isModalVisible);
   };
 
   return (
-    <header className={`header ${isDarkMode ? "dark-mode" : ""}`}>
+    <header className="header">
       <section className="header-container">
         <Link href={"/"}>
           <p className="logo">Picky</p>
