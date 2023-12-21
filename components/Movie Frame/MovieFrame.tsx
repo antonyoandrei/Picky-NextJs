@@ -47,8 +47,8 @@ const MovieFrameComponent: React.FC<MovieFrameComponentProps> = ({
               movie: { poster_image: string; title: string; id: number },
               index: Key
             ) => (
-              <SwiperSlide>
-                <article className="swiper-slide" key={index}>
+              <SwiperSlide key={index}>
+                <article className="swiper-slide">
                   <Link href={`/details/${movie.id}`}>
                     <Image
                       width={200}
