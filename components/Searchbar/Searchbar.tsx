@@ -67,7 +67,7 @@ const SearchbarComponent: React.FC<SearchbarProps> = ({ query }) => {
 
   return (
     <main className="searchbar-component">
-      {query && <h1 className="searchbar-title">{t("Results")}</h1>}
+      {query && <h1 className={`searchbar-title ${isDarkMode ? 'dark-mode' : ''}`}>{t("Results")}</h1>}
 
       {query && filteredMovies.length > 0 ? (
         <section className="movies-wrapper">
