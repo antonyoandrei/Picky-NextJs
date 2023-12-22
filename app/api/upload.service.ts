@@ -10,7 +10,7 @@ export const uploadRequest = async (
     const response: Response = await fetch(`${url}/movie/upload/image`, {
       method: "POST",
       body: formData,
-      mode: 'no-cors'
+      mode: 'cors'
     });
 
     const data = await response.json();
