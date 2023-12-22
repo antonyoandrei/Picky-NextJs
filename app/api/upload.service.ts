@@ -9,14 +9,13 @@ export const uploadRequest = async (
 
     const response: Response = await fetch(`${url}/movie/upload/image`, {
       method: "POST",
-      body: formData,
-      mode: "no-cors"
+      body: formData
     });
 
     const data = await response.json();
 
-    if (data && data.secure_url) {
-      return data.secure_url;
+    if (data && data.data && data.data.url) {
+      return data.data.url;
     } else {
       console.error("Invalid response format from server:", data);
       return undefined;
