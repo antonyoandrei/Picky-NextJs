@@ -58,6 +58,7 @@ export const useTheme = () => {
     const headerElement = document.querySelector("header");
     const infoFooter = document.querySelector(".info-wrapper");
     const iconsFooter = document.querySelectorAll(".icon-social");
+    const modalInputs = document.querySelectorAll(".modal-input");
     const userDetailsTitles = document.querySelectorAll(".user-details-titles");
     const userDetailsParagraph = document.querySelectorAll(
       ".user-details-paragraph"
@@ -85,6 +86,9 @@ export const useTheme = () => {
         userDetailsParagraph.forEach((paragraph) => {
           paragraph.classList.add("dark-mode");
         });
+        modalInputs.forEach((input) => {
+          input.classList.add("dark-mode");
+        });
       } else {
         bodyElement.classList.remove("dark-mode");
         swiperBtnNext?.classList.remove("dark-mode");
@@ -101,6 +105,9 @@ export const useTheme = () => {
         });
         userDetailsParagraph.forEach((paragraph) => {
           paragraph.classList.remove("dark-mode");
+        });
+        modalInputs.forEach((input) => {
+          input.classList.remove("dark-mode");
         });
       }
     }
