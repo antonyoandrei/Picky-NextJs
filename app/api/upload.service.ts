@@ -9,7 +9,8 @@ export const uploadRequest = async (
 
     const response: Response = await fetch(`${url}/movie/upload/image`, {
       method: "POST",
-      body: formData
+      body: formData,
+      mode: 'no-cors'
     });
 
     const data = await response.json();
@@ -22,7 +23,6 @@ export const uploadRequest = async (
     }
   } catch (error) {
     console.error("Error uploading image to Cloudinary:", error);
-    console.log(error)
     return undefined;
   }
 };
