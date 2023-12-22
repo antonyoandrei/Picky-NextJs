@@ -2,7 +2,7 @@ export const uploadRequest = async (
   file: File | undefined
 ): Promise<string | undefined> => {
   try {
-    const url = process.env.NEXT_PUBLIC_API_URL;
+    const url = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
 
     const formData: FormData = new FormData();
     file && formData.append("image", file);
