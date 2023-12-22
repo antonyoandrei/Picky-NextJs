@@ -13,6 +13,7 @@ export const uploadRequest = async (
     });
 
     const data = await response.json();
+    console.log(data)
 
     if (data && data.data && data.data.url) {
       return data.data.url;
