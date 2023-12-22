@@ -14,8 +14,8 @@ export const uploadRequest = async (
 
     const data = await response.json();
 
-    if (data && data.data && data.data.url) {
-      return data.data.url;
+    if (data && data.secure_url) {
+      return data.secure_url;
     } else {
       console.error("Invalid response format from server:", data);
       return undefined;
