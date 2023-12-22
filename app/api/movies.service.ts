@@ -6,6 +6,7 @@ export const createMovie = async (movie: FormData, userId: number) => {
   try {
     const response = await fetch(`${url}/movie/${userId}`, {
       method: "POST",
+      mode: 'no-cors',
       headers: {
         "Content-Type": "application/json",
       },
@@ -27,6 +28,7 @@ export const fetchMovies = async (userId: number) => {
   try {
     const response = await fetch(`${url}/movie/user/${userId}`, {
       method: "GET",
+      mode: 'no-cors'
     });
 
     if (response.ok) {
@@ -48,6 +50,7 @@ export const fetchMovieById = async (movieId: number) => {
   try {
     const response = await fetch(`${url}/movie/${movieId}`, {
       method: "GET",
+      mode: 'no-cors'
     });
 
     if (response.ok) {
@@ -69,6 +72,7 @@ export const deleteMovieById = async (movieId: number) => {
   try {
     const response = await fetch(`${url}/movie/${movieId}`, {
       method: "DELETE",
+      mode: 'no-cors'
     });
 
     if (response.ok) {

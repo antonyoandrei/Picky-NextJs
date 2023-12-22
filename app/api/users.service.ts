@@ -4,6 +4,7 @@ export const createUser = async (userObject: {}) => {
   try {
     const response = await fetch(`${url}/user`, {
       method: "POST",
+      mode: 'no-cors',
       headers: {
         "Content-type": "application/json; charset=UTF-8",
       },
@@ -23,6 +24,7 @@ export const getUserByEmail = async (userEmail: string) => {
   try {
     const response = await fetch(`${url}/user/email/${userEmail}`, {
       method: "GET",
+      mode: 'no-cors',
       headers: {
         "Content-type": "application/json; charset=UTF-8",
       },
