@@ -9,11 +9,11 @@ export const uploadRequest = async (
 
     const response: Response = await fetch(`${url}/movie/upload/image`, {
       method: "POST",
-      body: formData,
-      mode: 'cors'
+      body: formData
     });
 
     const data = await response.json();
+    console.log(data)
 
     if (data && data.data && data.data.url) {
       return data.data.url;
