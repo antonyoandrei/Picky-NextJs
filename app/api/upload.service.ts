@@ -7,7 +7,7 @@ export const uploadRequest = async (
     const formData: FormData = new FormData();
     file && formData.append("image", file);
 
-    const response: Response = await fetch(`${url}/movie/upload/image`, {
+    const response: Response = await fetch(`https://picky-server.vercel.app/movie/upload/image`, {
       method: "POST",
       body: formData
     });
