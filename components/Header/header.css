@@ -184,6 +184,7 @@
     padding: 20px;
     margin-left: 0px;
     flex-direction: column;
+    gap: 0.5rem;
   }
   .logged-text {
     display: none;

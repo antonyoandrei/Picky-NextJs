@@ -129,3 +129,27 @@
   font-size: var(--fs-s);
   text-transform: capitalize;
 }
+
+@media screen and (max-width: 450px) {
+  .details-component {
+    flex-wrap: wrap;
+    gap: 0;
+    height: auto;
+  }
+  .details-movie-title {
+    font-size: var(--fs-l);
+    width: 290px;
+  }
+  .details-container {
+    margin-top: 1rem;
+  }
+  .details-title-wrapper {
+    gap: 0rem;
+  }
+  .details-movie-info {
+    gap: 1rem;
+  }
+  .details-cover-container {
+    margin-top: 1.5rem;
+  }
+}

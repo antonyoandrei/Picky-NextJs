@@ -161,3 +161,41 @@
 .cover {
   width: 200px;
 }
+
+@media screen and (max-width: 450px) {
+  .modal-component {
+    width: 360px;
+    top: 180px;
+    left: 5%;
+    flex-direction: column;
+    padding: 2rem 1rem;
+    gap: 0.5rem;
+  }
+  .movie-info {
+    flex-direction: column;
+    align-items: center;
+  }
+  .modal-input {
+    width: 300px;
+    font-size: var(--fs-s);
+  }
+  .modal-btn-text {
+    font-size: var(--fs-r);
+  }
+  .cover-img {
+    width: 180px;
+    height: 280px;
+  }
+  .cover {
+    height: 280px;
+    width: 180px;
+  }
+  .modal-img-input {
+    height: 130px;
+    width: 150px;
+  }
+  .cover-container {
+    width: 180px;
+    height: 280px;
+  }
+}

@@ -35,3 +35,12 @@
 .fallback-text-2.dark-mode {
   color: var(--primary);
 }
+
+@media screen and (max-width: 450px) {
+  .movies-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .fallback-text-2 {
+    font-size: var(--fs-r);
+  }
+}

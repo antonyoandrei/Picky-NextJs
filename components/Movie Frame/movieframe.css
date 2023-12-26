@@ -108,7 +108,7 @@
   }
   .fallback-text {
     bottom: 150px;
-    left: 25px;
-    font-size: var(--fs-m);
+    left: 50px;
+    font-size: var(--fs-r);
   }
 }
