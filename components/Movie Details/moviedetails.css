@@ -135,6 +135,7 @@
     flex-wrap: wrap;
     gap: 0;
     height: auto;
+    height: 85vh
   }
   .details-movie-title {
     font-size: var(--fs-l);
@@ -142,6 +143,7 @@
   }
   .details-container {
     margin-top: 1rem;
+    margin-bottom: 2rem;
   }
   .details-title-wrapper {
     gap: 0rem;
