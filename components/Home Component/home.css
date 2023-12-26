@@ -50,3 +50,9 @@
 .see-all-text.dark-mode {
   color: var(--secondary);
 }
+
+@media screen and (max-width: 450px) { 
+  .home-wrapper {
+    min-height: 60vh;
+  } 
+}

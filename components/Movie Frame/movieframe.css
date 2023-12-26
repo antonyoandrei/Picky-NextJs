@@ -89,3 +89,21 @@
   filter: saturate(1.25);
   transition: filter 0.2s;
 }
+
+@media screen and (max-width: 450px) {
+  .frame-title-wrapper {
+    margin-top: 25px;
+    margin-left: 20%;
+  }
+  .swiper-hero {
+    width: 380px;
+    height: 300px;
+  }
+  .swiper-hero img {
+    width: 180px;
+    height: 280px;
+  }
+  .swiper-hero .swiper-slide {
+    padding: 5px 0;
+  }
+}

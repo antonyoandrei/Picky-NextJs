@@ -14,7 +14,6 @@
   align-items: center;
   padding: 20px;
   margin-left: 50px;
-  margin-right: 50px;
 }
 
 .logged-wrapper {
@@ -177,4 +176,16 @@
   box-sizing: border-box;
   fill: var(--secondary);
   font-size: 1.3em;
+}
+
+@media screen and (max-width: 450px) {
+  .header-container {
+    display: flex;
+    padding: 20px;
+    margin-left: 0px;
+    flex-direction: column;
+  }
+  .logged-text {
+    display: none;
+  }
 }
