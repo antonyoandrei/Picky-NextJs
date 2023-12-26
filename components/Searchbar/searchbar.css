@@ -46,4 +46,7 @@
   .fallback-text-2 {
     font-size: var(--fs-m);
   }
+  .see-all-component {
+    height: 100%;
+  }
 }
