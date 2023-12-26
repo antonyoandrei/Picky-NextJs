@@ -55,4 +55,7 @@
   .home-wrapper {
     min-height: 60vh;
   }
+  .frame-title {
+    font-size: var(--fs-r);
+  }
 }

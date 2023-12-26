@@ -92,8 +92,8 @@
 
 @media screen and (max-width: 450px) {
   .frame-title-wrapper {
-    margin-top: 25px;
-    margin-left: 20%;
+    margin-top: 20px;
+    margin-left: 50px;
   }
   .swiper-hero {
     width: 380px;

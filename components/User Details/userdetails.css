@@ -211,7 +211,7 @@ label {
   .user-details-component {
     display: flex;
     justify-content: center;
-    height: 85vh;
+    min-height: 85vh;
   }
   .user-details-container {
     display: flex;
