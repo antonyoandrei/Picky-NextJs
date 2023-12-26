@@ -106,4 +106,9 @@
   .swiper-hero .swiper-slide {
     padding: 5px 0;
   }
+  .fallback-text {
+    bottom: 150px;
+    left: 25px;
+    font-size: var(--fs-m);
+  }
 }

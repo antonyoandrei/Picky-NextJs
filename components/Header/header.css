@@ -29,7 +29,7 @@
 
 .logo {
   font-weight: var(--fw-bold);
-  font-size: var(--fs-l);
+  font-size: var(--fs-xl);
   color: var(--primary);
   cursor: pointer;
 }
