@@ -211,13 +211,15 @@ label {
   .user-details-component {
     display: flex;
     justify-content: center;
-    min-height: 85vh;
+    margin-bottom: 2rem;
+    height: auto;
   }
   .user-details-container {
     display: flex;
     margin-top: 10px;
     flex-direction: column;
     gap: 2rem;
+    margin-bottom: 20rem;
   }
   .user-details-wrapper-title {
     display: flex;
