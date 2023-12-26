@@ -54,6 +54,7 @@
 @media screen and (max-width: 450px) {
   .home-wrapper {
     height: auto;
+    min-height: 50vh;
   }
   .frame-title {
     font-size: var(--fs-r);
