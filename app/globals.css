@@ -29,7 +29,7 @@ body {
 }
 
 body.dark-mode {
-  background-color: var(--secondary);
+  background-color: var(--secondary) !important;
   transition: background-color 0.2s;
 }
 
