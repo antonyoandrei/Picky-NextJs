@@ -25,6 +25,9 @@ body {
   scroll-behavior: smooth;
   margin: 0;
   transition: background-color 0.2s;
+}
+
+body {
   background-color: var(--primary);
 }
 

@@ -45,7 +45,4 @@
   .fallback-text-2 {
     font-size: var(--fs-r);
   }
-  .see-all-component {
-    min-height: 80vh ;
-  }
 }

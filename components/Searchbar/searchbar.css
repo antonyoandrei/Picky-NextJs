@@ -46,7 +46,4 @@
   .fallback-text-2 {
     font-size: var(--fs-m);
   }
-  .searchbar-component {
-    min-height: 80vh ;
-  }
 }
