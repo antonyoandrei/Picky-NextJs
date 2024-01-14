@@ -9,7 +9,7 @@ import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
-import { useTheme } from "@/contexts/ThemeContext";
+import { useTheme } from "../../contexts/ThemeContext";
 
 interface MovieFrameComponentProps {
   id: string;
