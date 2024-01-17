@@ -11,7 +11,7 @@ jest.mock("../../app/api/movies.service");
 
 jest.mock("next/image", () => {
   return ({ src, alt }: any) => <img src={src} alt={alt} />;
-});
+}, { virtual: true } as any);
 
 test("Renders movie details", async () => {
   const mockResponse = {
