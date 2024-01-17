@@ -10,7 +10,7 @@ import { fetchMovieById } from "../../app/api/movies.service";
 jest.mock("../../app/api/movies.service");
 
 jest.mock("next/image", () => {
-  return ({ src, alt, ...props }: any) => <img src={src} alt={alt} {...props} />;
+  return ({ src, alt }: any) => <img src={src} alt={alt} />;
 });
 
 test("Renders movie details", async () => {
