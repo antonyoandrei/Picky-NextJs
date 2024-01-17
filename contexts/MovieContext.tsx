@@ -1,10 +1,17 @@
 "use client";
 
-import { createContext, useState, useEffect, ReactNode } from "react";
+import {
+  createContext,
+  useState,
+  useEffect,
+  ReactNode,
+  useContext,
+} from "react";
 import { useUser, UserProvider } from "@auth0/nextjs-auth0/client";
 import { handleAuth } from "@auth0/nextjs-auth0";
 import { fetchMovies } from "../app/api/movies.service";
 import { useUserContext } from "../utils/useUserContext";
+import React from "react";
 
 export type MovieType = {
   id: number;
@@ -39,6 +46,10 @@ export const MovieContext = createContext<MovieContextType>({
   },
   addMovieToAll: () => {},
 });
+
+export const useMovieSets = () => {
+  return useContext(MovieContext).movieSets;
+};
 
 type MovieProviderProps = {
   children: ReactNode;

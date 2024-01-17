@@ -2,6 +2,7 @@
 
 import { ReactNode, createContext, useContext, useEffect } from "react";
 import i18n from "../i18n";
+import React from "react";
 
 type LanguageContextType = {
   language: string;

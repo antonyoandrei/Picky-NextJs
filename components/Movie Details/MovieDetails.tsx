@@ -5,9 +5,10 @@ import imdb from "../../public/imdb.logo.svg";
 import { useState, useEffect } from "react";
 import { deleteMovieById, fetchMovieById } from "../../app/api/movies.service";
 import Image from "next/image";
-import { Genre, MovieType } from "@/contexts/MovieContext";
+import { Genre, MovieType } from "../../contexts/MovieContext";
 import { useTranslation } from "react-i18next";
-import { useTheme } from "@/contexts/ThemeContext";
+import { useTheme } from "../../contexts/ThemeContext";
+import React from "react";
 
 const MovieDetailsComponent = ({ movieId }: any) => {
   const [movieDetails, setMovieDetails] = useState<MovieType | null>(null);

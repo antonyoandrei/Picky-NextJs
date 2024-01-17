@@ -1,10 +1,11 @@
 "use client";
 
+import React from "react";
 import "./movieframe.css";
-import { Key, useContext } from "react";
+import { Key } from "react";
 import "swiper/swiper-bundle.css";
 import Link from "next/link";
-import { MovieContext } from "../../contexts/MovieContext";
+import { MovieType } from "../../contexts/MovieContext";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
@@ -14,13 +15,10 @@ import { useTheme } from "../../contexts/ThemeContext";
 interface MovieFrameComponentProps {
   id: string;
   movieSet: "allMovies";
+  movies: MovieType[];
 }
 
-const MovieFrameComponent: React.FC<MovieFrameComponentProps> = ({
-  movieSet,
-}) => {
-  const { movieSets } = useContext(MovieContext);
-  const movies = movieSets[movieSet];
+const MovieFrameComponent: React.FC<MovieFrameComponentProps> = ({ movies }) => {
   const { t } = useTranslation();
   const { isDarkMode } = useTheme();
 

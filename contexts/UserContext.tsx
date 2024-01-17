@@ -1,6 +1,7 @@
 "use client";
 
 import { createContext, useState } from "react";
+import React from "react";
 
 export interface UserType {
   id: number;

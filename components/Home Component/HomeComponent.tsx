@@ -7,11 +7,14 @@ import { useUserContext } from "../../utils/useUserContext";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import MovieFrameComponent from "../Movie Frame/MovieFrame";
 import { getUserByEmail, createUser } from "../../app/api/users.service";
-import { UserType } from "@/contexts/UserContext";
+import { UserType } from "../../contexts/UserContext";
 import { useTranslation } from "react-i18next";
-import { useTheme } from "@/contexts/ThemeContext";
+import { useTheme } from "../../contexts/ThemeContext";
+import React from "react";
+import { useMovieSets } from "../../contexts/MovieContext";
 
-const HomepageComponent = () => {
+const HomepageComponent: React.FC = () => {
+  const movies = useMovieSets()["allMovies"];
   const { user, isLoading } = useUser();
   const { setCurrentLoggedUser } = useUserContext();
   const { t } = useTranslation();
@@ -68,7 +71,11 @@ const HomepageComponent = () => {
           </button>
         </Link>
       </section>
-      <MovieFrameComponent id="firstSwiper" movieSet="allMovies" />
+      <MovieFrameComponent
+        movieSet="allMovies"
+        id="firstSwiper"
+        movies={movies}
+      />
     </main>
   );
 };
